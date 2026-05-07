@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coastal Spray Tans — Galesburg, Illinois</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:       #C9A843;
+      --gold-lt:    #E2C46E;
+      --gold-dk:    #9E7E28;
+      --navy:       #1B3A6E;
+      --navy-deep:  #0D2040;
+      --cream:      #F8F3EA;
+      --sand:       #EDE0C8;
+      --sand-dk:    #D9C9A8;
+      --text:       #2A2015;
+      --muted:      #6B5E4A;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 495;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3.5rem;
+      background: rgba(248, 243, 234, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201, 168, 67, 0.18);
+      transition: padding 0.3s;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+    }
+
+    .nav-mark { width: 38px; height: 38px; }
+
+    .nav-words {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-words-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
+    .nav-words-sub {
+      font-size: 0.52rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-book {
+      background: var(--navy) !important;
+      color: var(--cream) !important;
+      padding: 0.7rem 1.6rem;
+      transition: background 0.25s, transform 0.2s !important;
+    }
+    .nav-book:hover {
+      background: var(--gold-dk) !important;
+      color: var(--cream) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy-deep);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -5%, rgba(27,58,110,0.9) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 50% at 15% 55%, rgba(13,32,64,0.95) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 85% 70%, rgba(201,168,67,0.08) 0%, transparent 55%),
+        linear-gradient(175deg, #091828 0%, #112240 30%, #1B3A6E 58%, #1a3560 75%, #0a1a35 100%);
+    }
+
+    .hero-shimmer {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -8deg,
+        transparent 0px,
+        transparent 38px,
+        rgba(201,168,67,0.025) 38px,
+        rgba(201,168,67,0.025) 39px
+      );
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,67,0.10) 0%, transparent 65%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: glowPulse 7s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity:1; transform:translate(-50%,-50%) scale(1); }
+      50%      { opacity:0.6; transform:translate(-50%,-50%) scale(1.15); }
+    }
+
+    .hero-horizon {
+      position: absolute;
+      bottom: 0; left: -10%; right: -10%;
+      height: 180px;
+    }
+    .wave {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 100%;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
+    .wave-1 { background: rgba(201,168,67,0.06); bottom:-60px; animation: waveSway 9s ease-in-out infinite; }
+    .wave-2 { background: rgba(201,168,67,0.04); bottom:-90px; animation: waveSway 11s ease-in-out infinite reverse; }
+    .wave-3 { background: var(--cream); bottom:-130px; }
+
+    @keyframes waveSway {
+      0%,100% { transform: scaleX(1) translateY(0); }
+      50%      { transform: scaleX(1.04) translateY(-12px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem 2rem 8rem;
+    }
+
+    .hero-mark {
+      width: 130px; height: 130px;
+      margin: 0 auto 2.8rem;
+      filter: drop-shadow(0 0 35px rgba(201,168,67,0.35));
+      opacity: 0;
+      animation: markReveal 1s ease 0.2s forwards, markGlow 6s ease-in-out 1.2s infinite;
+    }
+    @keyframes markReveal {
+      from { opacity:0; transform:scale(0.85); }
+      to   { opacity:1; transform:scale(1); }
+    }
+    @keyframes markGlow {
+      0%,100% { filter: drop-shadow(0 0 25px rgba(201,168,67,0.30)); }
+      50%      { filter: drop-shadow(0 0 55px rgba(201,168,67,0.55)); }
+    }
+
+    .hero-eyebrow {
+      display: block;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.6s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 0.92;
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.85s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2.3rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(248,243,234,0.55);
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.05s forwards;
+    }
+    .hero-loc {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(201,168,67,0.6);
+      margin-bottom: 3.2rem;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.2s forwards;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.4s forwards;
+    }
+
+    @keyframes riseIn {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.9s forwards;
+    }
+    .hero-scroll-hint span {
+      font-size: 0.5rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(248,243,234,0.3);
+    }
+    .scroll-bar {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(201,168,67,0.7), transparent);
+      animation: scrollAnim 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollAnim {
+      0%   { transform:scaleY(0); transform-origin:top; opacity:1; }
+      49%  { transform:scaleY(1); transform-origin:top; opacity:1; }
+      50%  { transform:scaleY(1); transform-origin:bottom; }
+      100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 1rem 2.4rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.3s;
+    }
+    .btn:hover::after { background: rgba(255,255,255,0.08); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-deep);
+    }
+    .btn-gold:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,67,0.35);
+    }
+    .btn-ghost {
+      border: 1px solid rgba(248,243,234,0.35);
+      color: var(--cream);
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--cream);
+    }
+    .btn-navy:hover {
+      background: var(--navy-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(13,32,64,0.3);
+    }
+
+    /* ─── TICKER ─── */
+    .ticker {
+      background: var(--gold);
+      padding: 0.85rem 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      animation: tickerRoll 22s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+      white-space: nowrap;
+    }
+    .ticker-item span {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--navy-deep);
+    }
+    .ticker-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(13,32,64,0.3);
+      flex-shrink: 0;
+    }
+    @keyframes tickerRoll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION SHARED ─── */
+    .section-tag {
+      display: block;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 1.1rem;
+    }
+    .section-tag--light { color: var(--gold-lt); }
+
+    .gold-rule {
+      width: 50px; height: 2px;
+      background: var(--gold);
+      margin: 2rem 0;
+    }
+    .gold-rule--center { margin: 2rem auto; }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: 9rem 3.5rem;
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 7rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-orb {
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--sand) 0%, var(--sand-dk) 100%);
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(201,168,67,0.25),
+        0 0 0 20px rgba(201,168,67,0.06),
+        inset 0 -30px 60px rgba(201,168,67,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-orb-mark {
+      width: 220px; height: 220px;
+      opacity: 0.22;
+    }
+
+    .about-pill {
+      position: absolute;
+      bottom: -16px; right: -24px;
+      background: var(--navy);
+      border-radius: 80px;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 8px 30px rgba(13,32,64,0.25);
+    }
+    .about-pill-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(201,168,67,0.15);
+      border: 1px solid rgba(201,168,67,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .about-pill-text strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .about-pill-text small {
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(248,243,234,0.6);
+      font-weight: 600;
+    }
+
+    .about-floating-tag {
+      position: absolute;
+      top: 20px; left: -24px;
+      background: var(--gold);
+      padding: 0.5rem 1rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--navy-deep);
+    }
+
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 0.3rem;
+    }
+    .about-text h2 em {
+      font-style: italic;
+      color: var(--gold-dk);
+    }
+
+    .about-text p {
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 2rem;
+    }
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .about-feature::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─── SERVICES ─── */
+    .services {
+      background: var(--navy-deep);
+      padding: 8rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .services::before,
+    .services::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 40%, var(--gold-lt) 60%, transparent 100%);
+      opacity: 0.3;
+    }
+    .services::before { top: 0; }
+    .services::after  { bottom: 0; }
+
+    .services-bg-mark {
+      position: absolute;
+      right: -120px; top: 50%;
+      transform: translateY(-50%);
+      width: 550px; height: 550px;
+      opacity: 0.028;
+      pointer-events: none;
+    }
+    .services-bg-mark-2 {
+      position: absolute;
+      left: -100px; top: 10%;
+      width: 300px; height: 300px;
+      opacity: 0.02;
+      pointer-events: none;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 5.5rem;
+    }
+    .services-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .services-header h2 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .services-header p {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(248,243,234,0.45);
+      letter-spacing: 0.04em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 1140px;
+      margin: 0 auto;
+      border: 1px solid rgba(201,168,67,0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card {
+      padding: 3.5rem 2.8rem;
+      border-right: 1px solid rgba(201,168,67,0.12);
+      position: relative;
+      transition: background 0.4s;
+      overflow: hidden;
+    }
+    .service-card:last-child { border-right: none; }
+
+    .service-card--featured {
+      background: rgba(201,168,67,0.045);
+    }
+    .service-card--featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-size: 0.48rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      padding: 0.35rem 1.2rem;
+      white-space: nowrap;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card:hover::after { opacity: 1; }
+    .service-card:hover { background: rgba(201,168,67,0.06); }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(201,168,67,0.1);
+      line-height: 1;
+      position: absolute;
+      top: 2rem; right: 2.5rem;
+    }
+
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1.8rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 0.4rem;
+    }
+    .service-tagline {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .service-rule {
+      width: 28px; height: 1px;
+      background: rgba(201,168,67,0.4);
+      margin: 1.6rem 0;
+    }
+    .service-desc {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(248,243,234,0.48);
+      margin-bottom: 2.2rem;
+    }
+
+    .service-pricing { display: flex; flex-direction: column; gap: 0.55rem; }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid rgba(255,255,255,0.055);
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-label {
+      font-size: 0.73rem;
+      font-weight: 400;
+      color: rgba(248,243,234,0.55);
+    }
+    .price-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--gold-lt);
+    }
+    .price-val.big { font-size: 1.7rem; }
+
+    .service-cta {
+      display: block;
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 0.85rem;
+      border: 1px solid rgba(201,168,67,0.25);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(248,243,234,0.6);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .service-cta:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,67,0.06);
+    }
+    .service-card--featured .service-cta {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy-deep);
+    }
+    .service-card--featured .service-cta:hover {
+      background: var(--gold-lt);
+    }
+
+    /* ─── LAUNCH OFFER ─── */
+    .launch {
+      background: var(--navy);
+      padding: 4rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .launch-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .launch-badge {
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.1rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .launch h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+    .launch h3 strong {
+      font-weight: 600;
+      color: var(--gold-lt);
+    }
+    .launch p {
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(248,243,234,0.55);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+    .launch-price {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .launch-price-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .launch-price-note {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(248,243,234,0.45);
+      margin-top: 0.3rem;
+    }
+
+    /* ─── BOOKING ─── */
+    .booking {
+      padding: 9rem 3.5rem;
+      background: var(--cream);
+      text-align: center;
+      position: relative;
+    }
+    .booking-inner { max-width: 680px; margin: 0 auto; }
+
+    .booking h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
+    }
+    .booking h2 em {
+      font-style: italic;
+      color: var(--gold-dk);
+    }
+    .booking p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 3.5rem;
+    }
+
+    .booking-cards {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .booking-card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1.1rem 1.8rem;
+      border: 1px solid var(--sand-dk);
+      background: white;
+      text-decoration: none;
+      color: var(--navy);
+      transition: all 0.3s;
+    }
+    .booking-card:hover {
+      border-color: var(--gold);
+      background: var(--navy-deep);
+      color: var(--cream);
+    }
+    .booking-card:hover .booking-card-icon { color: var(--gold); }
+    .booking-card-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .booking-card-text { text-align: left; }
+    .booking-card-text strong {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .booking-card-text small {
+      font-size: 0.65rem;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+    .booking-note {
+      margin-top: 3rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: rgba(107,94,74,0.65);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-deep);
+      padding: 5rem 3.5rem 3rem;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,67,0.12);
+    }
+    .footer-mark {
+      width: 56px; height: 56px;
+      margin: 0 auto 1.6rem;
+      opacity: 0.65;
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+    .footer-sub {
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 2.2rem;
+    }
+    .footer-loc {
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: rgba(248,243,234,0.3);
+      letter-spacing: 0.1em;
+      margin-bottom: 2.5rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 3rem;
+    }
+    .footer-links a {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(248,243,234,0.35);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.55rem;
+      color: rgba(248,243,234,0.18);
+      letter-spacing: 0.1em;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ─── HAMBURGER ─── */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 600;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .nav-burger.open span { background: var(--cream); }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── MOBILE FULL-SCREEN OVERLAY MENU ─── */
+    .mob-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--navy-deep);
+      z-index: 490;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mob-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mob-overlay-mark {
+      width: 52px; height: 52px;
+      margin-bottom: 2.5rem;
+      opacity: 0.5;
+    }
+    .mob-overlay a {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--cream);
+      text-decoration: none;
+      text-align: center;
+      padding: 0.7rem 2rem;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .mob-overlay a:hover { color: var(--gold-lt); }
+    .mob-overlay .mob-book {
+      margin-top: 1.8rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy-deep) !important;
+      padding: 1rem 2.5rem !important;
+    }
+    .mob-overlay-sub {
+      margin-top: 2.5rem;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(248,243,234,0.25);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .mob-overlay { display: flex; }
+
+      .hero-content { padding-top: 6rem; width: 100%; box-sizing: border-box; }
+      .hero-eyebrow { letter-spacing: 0.18em; white-space: normal; word-break: break-word; }
+      .hero-loc { letter-spacing: 0.15em; white-space: normal; word-break: break-word; }
+
+      .about { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem; }
+      .about-visual { margin-bottom: 1rem; }
+      .about-orb { width: 260px; height: 260px; margin: 0 auto; }
+      .about-pill { right: 0; bottom: -12px; }
+      .about-floating-tag { left: 0; top: 0; }
+
+      .services { padding: 6rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none; border-bottom: 1px solid rgba(201,168,67,0.1); }
+      .service-card:last-child { border-bottom: none; }
+
+      .launch { padding: 3rem 1.5rem; }
+      .launch-inner { flex-direction: column; text-align: center; }
+      .launch p { max-width: 100%; }
+
+      .booking { padding: 6rem 1.5rem; }
+      .booking-cards { flex-direction: column; align-items: center; }
+      .booking-card { width: 100%; max-width: 340px; }
+
+      footer { padding: 4rem 1.5rem 2.5rem; }
+      .footer-links { flex-wrap: wrap; gap: 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: clamp(2.8rem, 12vw, 3.2rem); }
+      .hero-eyebrow { letter-spacing: 0.2em; font-size: 0.6rem; }
+      .hero-sub { font-size: 1.15rem; }
+      .hero-loc { letter-spacing: 0.18em; }
+      .hero-content { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn { width: 100%; max-width: 280px; text-align: center; }
+      .about-orb { width: 220px; height: 220px; }
+      .about-pill { right: -4px; }
+      .services-header h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <svg class="nav-mark" id="nav-sun" viewBox="0 0 100 100"></svg>
+    <div class="nav-words">
+      <span class="nav-words-main">Coastal</span>
+      <span class="nav-words-sub">Spray Tans</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#book" class="nav-book">Book Now</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<nav class="mob-overlay" id="mob-overlay">
+  <svg class="mob-overlay-mark" id="overlay-sun" viewBox="0 0 200 200"></svg>
+  <a href="#about" class="mob-link">About</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#book" class="mob-link mob-book">Book Now</a>
+  <span class="mob-overlay-sub">Coastal Spray Tans · Galesburg, IL</span>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-shimmer"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-horizon">
+    <div class="wave wave-1"></div>
+    <div class="wave wave-2"></div>
+    <div class="wave wave-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <svg class="hero-mark" id="hero-sun" viewBox="0 0 200 200"></svg>
+    <span class="hero-eyebrow">Airbrush Spray Tanning · Galesburg, Illinois</span>
+    <h1 class="hero-title">
+      Your Best<br><em>Glow Yet.</em>
+    </h1>
+    <p class="hero-sub">Custom airbrush tans — no streaks, no orange</p>
+    <span class="hero-loc">Inside a local hair salon · Galesburg, IL</span>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-gold">Book Your Tan</a>
+      <a href="#services" class="btn btn-ghost">View Services</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <div class="scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-floating-tag">Galesburg, IL</div>
+    <div class="about-orb">
+      <svg class="about-orb-mark" id="about-sun" viewBox="0 0 200 200"></svg>
+    </div>
+    <div class="about-pill">
+      <div class="about-pill-icon">☀️</div>
+      <div class="about-pill-text">
+        <strong>$30</strong>
+        <small>Starting at</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-text">
+    <span class="section-tag">About Coastal</span>
+    <h2>A <em>golden glow</em><br>crafted just for you</h2>
+    <div class="gold-rule"></div>
+    <p>
+      Coastal Spray Tans brings professional airbrush spray tanning to Galesburg —
+      nestled right inside your favorite local hair salon. No tanning beds.
+      No harsh UV. Just a flawless, custom-blended tan that lasts 7–10 days.
+    </p>
+    <p>
+      Whether you're prepping for prom, walking down the aisle, or just want
+      that year-round glow, we mix your shade on the spot — light, medium, or dark
+      — using premium solutions that smell great and look natural.
+    </p>
+    <div class="about-features">
+      <div class="about-feature">Full-body airbrush technique</div>
+      <div class="about-feature">Light, medium &amp; dark shades</div>
+      <div class="about-feature">Lasts 7–10 days with proper care</div>
+      <div class="about-feature">No orange, no streaks</div>
+      <div class="about-feature">Located inside a Galesburg hair salon</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <svg class="services-bg-mark" id="bg-sun-1" viewBox="0 0 200 200"></svg>
+  <svg class="services-bg-mark-2" id="bg-sun-2" viewBox="0 0 200 200"></svg>
+
+  <div class="services-header">
+    <span class="section-tag section-tag--light">What We Offer</span>
+    <h2>Three tiers.<br><em>One perfect glow.</em></h2>
+    <p>Simple, transparent pricing. No hidden fees. No upsells.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <span class="service-icon">✦</span>
+      <div class="service-name">Classic Glow</div>
+      <div class="service-tagline">Your Everyday Session</div>
+      <div class="service-rule"></div>
+      <p class="service-desc">Full-body airbrush spray tan. Light, medium, or dark shade options. Results last 7–10 days with proper care.</p>
+      <div class="service-pricing">
+        <div class="price-row">
+          <span class="price-label">Single Session</span>
+          <span class="price-val big">$30</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">3-Session Bundle</span>
+          <span class="price-val">$80</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Monthly (4 sessions)</span>
+          <span class="price-val">$99<small style="font-size:0.7rem;color:rgba(226,196,110,0.6)">/mo</small></span>
+        </div>
+      </div>
+      <a href="#book" class="service-cta">Book This →</a>
+    </div>
+
+    <div class="service-card service-card--featured">
+      <span class="service-num">02</span>
+      <span class="service-icon">💍</span>
+      <div class="service-name">Event &amp;<br>Bridal</div>
+      <div class="service-tagline">Your Highest-Value Service</div>
+      <div class="service-rule"></div>
+      <p class="service-desc">Bridal prep includes a trial session 1–2 weeks before your wedding day. Bridal parties of 3–8 people welcome.</p>
+      <div class="service-pricing">
+        <div class="price-row">
+          <span class="price-label">Bridal (1 session)</span>
+          <span class="price-val big">$50</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Bridal Prep Package</span>
+          <span class="price-val">$85</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Group (3+ people)</span>
+          <span class="price-val">$25<small style="font-size:0.7rem;color:rgba(226,196,110,0.6)"> ea.</small></span>
+        </div>
+      </div>
+      <a href="#book" class="service-cta">Book This →</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <span class="service-icon">🎓</span>
+      <div class="service-name">Prom &amp;<br>Student</div>
+      <div class="service-tagline">Seasonal Goldmine — Act Now</div>
+      <div class="service-rule"></div>
+      <p class="service-desc">Prom season is May — right now. One group booking can bring 10–20 referrals. Perfect for every special occasion.</p>
+      <div class="service-pricing">
+        <div class="price-row">
+          <span class="price-label">Student Special</span>
+          <span class="price-val big">$25</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Student + Friend</span>
+          <span class="price-val">$45 <small style="font-size:0.65rem;color:rgba(226,196,110,0.6)">both</small></span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Prom Group (4+)</span>
+          <span class="price-val">$20<small style="font-size:0.7rem;color:rgba(226,196,110,0.6)"> ea.</small></span>
+        </div>
+      </div>
+      <a href="#book" class="service-cta">Book This →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── LAUNCH OFFER ── -->
+<div class="launch">
+  <div class="launch-inner">
+    <div>
+      <div class="launch-badge">⚡ Grand Opening Special — Limited Time</div>
+      <h3>First 15 clients get a<br><strong>full-body tan for $20.</strong></h3>
+      <p>First 15 spots only. After that, pricing moves to $30. Book now through Facebook Messenger or by calling/texting directly.</p>
+    </div>
+    <div class="launch-price">
+      <div class="launch-price-num">$20</div>
+      <div class="launch-price-note">First 15 clients only</div>
+      <a href="#book" class="btn btn-gold" style="margin-top:1.2rem;font-size:0.58rem">Claim Your Spot</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── BOOKING ── -->
+<section class="booking" id="book">
+  <div class="booking-inner">
+    <span class="section-tag">Ready to Glow?</span>
+    <h2>Book your <em>appointment</em></h2>
+    <div class="gold-rule gold-rule--center"></div>
+    <p>Booking is quick and easy. Message on Facebook or call/text directly — I respond fast and same-day appointments are often available.</p>
+    <div class="booking-cards">
+      <a href="https://www.facebook.com/Coastalspraytans1" target="_blank" class="booking-card">
+        <span class="booking-card-icon">📲</span>
+        <div class="booking-card-text">
+          <strong>Facebook Messenger</strong>
+          <small>Message us to book</small>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/Coastalspraytans1" target="_blank" class="booking-card">
+        <span class="booking-card-icon">📸</span>
+        <div class="booking-card-text">
+          <strong>Instagram</strong>
+          <small>@Coastalspraytans1</small>
+        </div>
+      </a>
+      <a href="tel:+13097374526" class="booking-card">
+        <span class="booking-card-icon">📞</span>
+        <div class="booking-card-text">
+          <strong>Call or Text</strong>
+          <small>(309) 737-4526</small>
+        </div>
+      </a>
+    </div>
+    <p class="booking-note">Located inside a local hair salon in Galesburg, IL · Serving Knox County · Same-day availability often open</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <svg class="footer-mark" id="footer-sun" viewBox="0 0 200 200"></svg>
+  <div class="footer-name">Coastal Spray Tans</div>
+  <div class="footer-sub">Galesburg, Illinois</div>
+  <div class="footer-loc">Inside a local hair salon · Galesburg, IL 61401 · Knox County</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#book">Book Now</a></li>
+    <li><a href="https://www.instagram.com/Coastalspraytans1" target="_blank">Instagram</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Coastal Spray Tans · All rights reserved</div>
+</footer>
+
+<script>
+  // ── SUN-CRESCENT MARK GENERATOR ──
+  function buildSunMark(svgEl, opts = {}) {
+    const {
+      gold    = '#C9A843',
+      rays    = 18,
+      cx      = 100,
+      cy      = 100,
+      outerR  = 82,
+      innerR  = 52,
+      rayW    = 2.8,
+      cresR1  = 45,
+      cresOff = 20,
+    } = opts;
+
+    const ns = 'http://www.w3.org/2000/svg';
+    svgEl.innerHTML = '';
+
+    for (let i = 0; i < rays; i++) {
+      const angle  = ((360 / rays) * i - 90) * (Math.PI / 180);
+      const perpA  = angle + Math.PI / 2;
+      const x1     = cx + Math.cos(angle) * (innerR + 5);
+      const y1     = cy + Math.sin(angle) * (innerR + 5);
+      const x2     = cx + Math.cos(angle) * outerR;
+      const y2     = cy + Math.sin(angle) * outerR;
+      const poly   = document.createElementNS(ns, 'polygon');
+      const pts    = [
+        `${x1 + Math.cos(perpA) * rayW},${y1 + Math.sin(perpA) * rayW}`,
+        `${x2},${y2}`,
+        `${x1 - Math.cos(perpA) * rayW},${y1 - Math.sin(perpA) * rayW}`,
+      ].join(' ');
+      poly.setAttribute('points', pts);
+      poly.setAttribute('fill', gold);
+      svgEl.appendChild(poly);
+    }
+
+    const uid  = 'c_' + Math.random().toString(36).slice(2, 8);
+    const defs = document.createElementNS(ns, 'defs');
+    const mask = document.createElementNS(ns, 'mask');
+    mask.setAttribute('id', uid);
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', '200'); bg.setAttribute('height', '200'); bg.setAttribute('fill', 'white');
+    mask.appendChild(bg);
+    const cut = document.createElementNS(ns, 'circle');
+    cut.setAttribute('cx', cx + cresOff); cut.setAttribute('cy', cy);
+    cut.setAttribute('r', cresR1 - 2); cut.setAttribute('fill', 'black');
+    mask.appendChild(cut);
+    defs.appendChild(mask);
+    svgEl.appendChild(defs);
+
+    const cres = document.createElementNS(ns, 'circle');
+    cres.setAttribute('cx', cx); cres.setAttribute('cy', cy);
+    cres.setAttribute('r', cresR1); cres.setAttribute('fill', gold);
+    cres.setAttribute('mask', `url(#${uid})`);
+    svgEl.appendChild(cres);
+  }
+
+  buildSunMark(document.getElementById('hero-sun'),  { outerR:88, innerR:55, cresR1:48, cresOff:22, rays:20, rayW:3 });
+  buildSunMark(document.getElementById('nav-sun'),   { outerR:42, innerR:27, cresR1:23, cresOff:11, rays:16, rayW:2.2 });
+  buildSunMark(document.getElementById('about-sun'), { outerR:88, innerR:56, cresR1:48, cresOff:22, rays:20, rayW:3 });
+  buildSunMark(document.getElementById('bg-sun-1'),  { outerR:88, innerR:56, cresR1:48, cresOff:22, rays:20, rayW:3 });
+  buildSunMark(document.getElementById('bg-sun-2'),  { outerR:88, innerR:56, cresR1:48, cresOff:22, rays:20, rayW:3 });
+  buildSunMark(document.getElementById('footer-sun'),{ outerR:86, innerR:54, cresR1:46, cresOff:20, rays:18, rayW:2.8 });
+
+  // ── TICKER ──
+  const tickerItems = [
+    'Custom Airbrush Spray Tans','No Streaks · No Orange','Galesburg Illinois',
+    'Bridal &amp; Event Packages','Prom Season is Here','Book via Facebook or Phone',
+    'Results Last 7–10 Days','Light · Medium · Dark Shades',
+  ];
+  const track = document.getElementById('ticker-track');
+  [...tickerItems, ...tickerItems].forEach((txt, i) => {
+    const item = document.createElement('div');
+    item.className = 'ticker-item';
+    item.innerHTML = `<span>${txt}</span>${i < tickerItems.length * 2 - 1 ? '<div class="ticker-dot"></div>' : ''}`;
+    track.appendChild(item);
+  });
+
+  // ── NAV SHRINK ──
+  window.addEventListener('scroll', () => {
+    const isMobile = window.innerWidth <= 860;
+    document.getElementById('nav').style.padding =
+      window.scrollY > 60
+        ? (isMobile ? '0.65rem 1.5rem' : '0.75rem 3.5rem')
+        : (isMobile ? '1rem 1.5rem' : '1.1rem 3.5rem');
+  });
+
+  // ── MOBILE MENU ──
+  const burger  = document.getElementById('nav-burger');
+  const overlay = document.getElementById('mob-overlay');
+  buildSunMark(document.getElementById('overlay-sun'), { outerR:86, innerR:54, cresR1:46, cresOff:20, rays:18, rayW:2.8, gold:'rgba(201,168,67,0.6)' });
+
+  function toggleMenu(open) {
+    burger.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  burger.addEventListener('click', () => toggleMenu(!burger.classList.contains('open')));
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.service-card, .about-text, .about-visual, .booking-card');
+
+  revealEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  });
+  document.querySelectorAll('.service-card').forEach((el, i) => { el.style.transitionDelay = `${i * 0.12}s`; });
+  document.querySelectorAll('.booking-card').forEach((el, i) => { el.style.transitionDelay = `${i * 0.1}s`; });
+
+  function revealEl(el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { revealEl(e.target); observer.unobserve(e.target); } });
+    }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(revealEl);
+  }
+
+  // Fallback: reveal everything after 2.5s in case observer misfires
+  setTimeout(() => revealEls.forEach(revealEl), 2500);
+</script>
+
+</body>
+</html>
