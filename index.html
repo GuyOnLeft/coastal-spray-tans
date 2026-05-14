@@ -1014,6 +1014,270 @@
       color: rgba(248,243,234,0.25);
     }
 
+    /* ─── SERVICES (2-up variant) ─── */
+    .services-grid--two {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 820px;
+    }
+
+    /* ─── ADD-ONS ─── */
+    .addons {
+      padding: 8rem 3.5rem;
+      background: var(--cream);
+    }
+    .addons-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .addons-header {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+    .addons-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .addons-header h2 em {
+      font-style: italic;
+      color: var(--gold-dk);
+    }
+    .addons-header p {
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--sand-dk);
+      border-left: 1px solid var(--sand-dk);
+    }
+    .addon {
+      padding: 2rem 2.2rem;
+      border-right: 1px solid var(--sand-dk);
+      border-bottom: 1px solid var(--sand-dk);
+      background: white;
+      transition: background 0.3s;
+    }
+    .addon:hover { background: var(--sand); }
+    .addon-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .addon-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+    .addon-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--gold-dk);
+      flex-shrink: 0;
+    }
+    .addon-desc {
+      font-size: 0.78rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ─── BRIDAL ─── */
+    .bridal {
+      background: linear-gradient(170deg, var(--navy-deep) 0%, var(--navy) 100%);
+      padding: 8rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .bridal-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .bridal-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .bridal-text h2 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .bridal-text p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(248,243,234,0.65);
+      margin-bottom: 1.6rem;
+      max-width: 460px;
+    }
+    .bridal-list {
+      list-style: none;
+      margin-bottom: 2.4rem;
+    }
+    .bridal-list li {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: rgba(248,243,234,0.78);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(201,168,67,0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .bridal-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+    .bridal-aside {
+      display: flex;
+      justify-content: center;
+    }
+    .bridal-quote {
+      background: rgba(201,168,67,0.06);
+      border: 1px solid rgba(201,168,67,0.22);
+      padding: 3rem 2.4rem 2.4rem;
+      max-width: 360px;
+      position: relative;
+    }
+    .bridal-quote-mark {
+      position: absolute;
+      top: -10px; left: 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .bridal-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--cream);
+    }
+
+    /* ─── HOURS &amp; PREP ─── */
+    .hours-prep {
+      background: var(--cream);
+      padding: 8rem 3.5rem;
+    }
+    .hours-prep-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+    }
+    .hours-block h2,
+    .prep-block h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.1rem, 3.6vw, 2.8rem);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+    .hours-block h2 em,
+    .prep-block h2 em {
+      font-style: italic;
+      color: var(--gold-dk);
+    }
+    .hours-loc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .hours-loc strong {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .hours-list {
+      list-style: none;
+      border-top: 1px solid var(--sand-dk);
+    }
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--sand-dk);
+      font-size: 0.85rem;
+      color: var(--navy);
+    }
+    .hours-list li span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .hours-list li span:last-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--gold-dk);
+    }
+    .hours-closed {
+      color: rgba(107,94,74,0.5) !important;
+      font-style: italic;
+    }
+    .hours-note {
+      margin-top: 1.3rem;
+      font-size: 0.72rem;
+      color: rgba(107,94,74,0.7);
+      font-style: italic;
+    }
+    .prep-list {
+      list-style: none;
+      counter-reset: prep;
+    }
+    .prep-list li {
+      display: flex;
+      gap: 1.3rem;
+      padding: 1.3rem 0;
+      border-bottom: 1px solid var(--sand-dk);
+    }
+    .prep-list li:first-child { border-top: 1px solid var(--sand-dk); }
+    .prep-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 38px;
+    }
+    .prep-list strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+    .prep-list p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
       nav { padding: 1rem 1.5rem; }
@@ -1032,13 +1296,21 @@
       .about-floating-tag { left: 0; top: 0; }
 
       .services { padding: 6rem 1.5rem; }
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid,
+      .services-grid--two { grid-template-columns: 1fr; }
       .service-card { border-right: none; border-bottom: 1px solid rgba(201,168,67,0.1); }
       .service-card:last-child { border-bottom: none; }
 
-      .launch { padding: 3rem 1.5rem; }
-      .launch-inner { flex-direction: column; text-align: center; }
-      .launch p { max-width: 100%; }
+      .addons { padding: 5rem 1.5rem; }
+      .addons-grid { grid-template-columns: 1fr; }
+
+      .bridal { padding: 5rem 1.5rem; }
+      .bridal-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .bridal-aside { justify-content: stretch; }
+      .bridal-quote { max-width: 100%; }
+
+      .hours-prep { padding: 5rem 1.5rem; }
+      .hours-prep-inner { grid-template-columns: 1fr; gap: 4rem; }
 
       .booking { padding: 6rem 1.5rem; }
       .booking-cards { flex-direction: column; align-items: center; }
@@ -1076,6 +1348,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#bridal">Bridal</a></li>
     <li><a href="#book" class="nav-book">Book Now</a></li>
   </ul>
   <button class="nav-burger" id="nav-burger" aria-label="Open menu">
@@ -1088,8 +1361,9 @@
   <svg class="mob-overlay-mark" id="overlay-sun" viewBox="0 0 200 200"></svg>
   <a href="#about" class="mob-link">About</a>
   <a href="#services" class="mob-link">Services</a>
+  <a href="#bridal" class="mob-link">Bridal</a>
   <a href="#book" class="mob-link mob-book">Book Now</a>
-  <span class="mob-overlay-sub">Coastal Spray Tans · Galesburg, IL</span>
+  <span class="mob-overlay-sub">Coastal Spray Tans · Inside Salon Blanco</span>
 </nav>
 
 <!-- ── HERO ── -->
@@ -1110,7 +1384,7 @@
       Your Best<br><em>Glow Yet.</em>
     </h1>
     <p class="hero-sub">Custom airbrush tans — no streaks, no orange</p>
-    <span class="hero-loc">Inside a local hair salon · Galesburg, IL</span>
+    <span class="hero-loc">Inside Salon Blanco · Galesburg, IL</span>
     <div class="hero-ctas">
       <a href="#book" class="btn btn-gold">Book Your Tan</a>
       <a href="#services" class="btn btn-ghost">View Services</a>
@@ -1149,21 +1423,22 @@
     <h2>A <em>golden glow</em><br>crafted just for you</h2>
     <div class="gold-rule"></div>
     <p>
-      Coastal Spray Tans brings professional airbrush spray tanning to Galesburg —
-      nestled right inside your favorite local hair salon. No tanning beds.
-      No harsh UV. Just a flawless, custom-blended tan that lasts 7–10 days.
+      Professional airbrush spray tanning in Galesburg — tucked right inside
+      Salon Blanco. No beds. No UV. Just a flawless, hand-blended tan
+      that lasts 7–10 days.
     </p>
     <p>
-      Whether you're prepping for prom, walking down the aisle, or just want
-      that year-round glow, we mix your shade on the spot — light, medium, or dark
-      — using premium solutions that smell great and look natural.
+      Whether you're walking down the aisle, heading to a bachelorette weekend,
+      or just chasing that year-round glow, we mix your shade on the spot
+      — light, medium, or dark — using premium solutions that smell great
+      and look natural.
     </p>
     <div class="about-features">
       <div class="about-feature">Full-body airbrush technique</div>
       <div class="about-feature">Light, medium &amp; dark shades</div>
       <div class="about-feature">Lasts 7–10 days with proper care</div>
       <div class="about-feature">No orange, no streaks</div>
-      <div class="about-feature">Located inside a Galesburg hair salon</div>
+      <div class="about-feature">Inside Salon Blanco · Galesburg, IL</div>
     </div>
   </div>
 </section>
@@ -1174,32 +1449,24 @@
   <svg class="services-bg-mark-2" id="bg-sun-2" viewBox="0 0 200 200"></svg>
 
   <div class="services-header">
-    <span class="section-tag section-tag--light">What We Offer</span>
-    <h2>Three tiers.<br><em>One perfect glow.</em></h2>
-    <p>Simple, transparent pricing. No hidden fees. No upsells.</p>
+    <span class="section-tag section-tag--light">The Menu</span>
+    <h2>Two tans.<br><em>One perfect glow.</em></h2>
+    <p>Simple, transparent pricing. Customize any session with add-ons below.</p>
   </div>
 
-  <div class="services-grid">
+  <div class="services-grid services-grid--two">
 
     <div class="service-card">
       <span class="service-num">01</span>
       <span class="service-icon">✦</span>
-      <div class="service-name">Classic Glow</div>
-      <div class="service-tagline">Your Everyday Session</div>
+      <div class="service-name">Signature Tan</div>
+      <div class="service-tagline">Custom Airbrush Glow</div>
       <div class="service-rule"></div>
-      <p class="service-desc">Full-body airbrush spray tan. Light, medium, or dark shade options. Results last 7–10 days with proper care.</p>
+      <p class="service-desc">A custom airbrush spray tan for a natural, even glow. Light, medium, or dark — blended to your skin tone on the spot.</p>
       <div class="service-pricing">
         <div class="price-row">
           <span class="price-label">Single Session</span>
           <span class="price-val big">$30</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">3-Session Bundle</span>
-          <span class="price-val">$80</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Monthly (4 sessions)</span>
-          <span class="price-val">$99<small style="font-size:0.7rem;color:rgba(226,196,110,0.6)">/mo</small></span>
         </div>
       </div>
       <a href="#book" class="service-cta">Book This →</a>
@@ -1207,47 +1474,15 @@
 
     <div class="service-card service-card--featured">
       <span class="service-num">02</span>
-      <span class="service-icon">💍</span>
-      <div class="service-name">Event &amp;<br>Bridal</div>
-      <div class="service-tagline">Your Highest-Value Service</div>
+      <span class="service-icon">⚡</span>
+      <div class="service-name">Rapid Tan</div>
+      <div class="service-tagline">Quicker Rinse Time</div>
       <div class="service-rule"></div>
-      <p class="service-desc">Bridal prep includes a trial session 1–2 weeks before your wedding day. Bridal parties of 3–8 people welcome.</p>
+      <p class="service-desc">A rapid-developing formula with a faster rinse time — ideal if you're short on time before an event.</p>
       <div class="service-pricing">
         <div class="price-row">
-          <span class="price-label">Bridal (1 session)</span>
-          <span class="price-val big">$50</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Bridal Prep Package</span>
-          <span class="price-val">$85</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Group (3+ people)</span>
-          <span class="price-val">$25<small style="font-size:0.7rem;color:rgba(226,196,110,0.6)"> ea.</small></span>
-        </div>
-      </div>
-      <a href="#book" class="service-cta">Book This →</a>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <span class="service-icon">🎓</span>
-      <div class="service-name">Prom &amp;<br>Student</div>
-      <div class="service-tagline">Seasonal Goldmine — Act Now</div>
-      <div class="service-rule"></div>
-      <p class="service-desc">Prom season is May — right now. One group booking can bring 10–20 referrals. Perfect for every special occasion.</p>
-      <div class="service-pricing">
-        <div class="price-row">
-          <span class="price-label">Student Special</span>
-          <span class="price-val big">$25</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Student + Friend</span>
-          <span class="price-val">$45 <small style="font-size:0.65rem;color:rgba(226,196,110,0.6)">both</small></span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Prom Group (4+)</span>
-          <span class="price-val">$20<small style="font-size:0.7rem;color:rgba(226,196,110,0.6)"> ea.</small></span>
+          <span class="price-label">Single Session</span>
+          <span class="price-val big">$40</span>
         </div>
       </div>
       <a href="#book" class="service-cta">Book This →</a>
@@ -1256,21 +1491,88 @@
   </div>
 </section>
 
-<!-- ── LAUNCH OFFER ── -->
-<div class="launch">
-  <div class="launch-inner">
-    <div>
-      <div class="launch-badge">⚡ Grand Opening Special — Limited Time</div>
-      <h3>First 15 clients get a<br><strong>full-body tan for $20.</strong></h3>
-      <p>First 15 spots only. After that, pricing moves to $30. Book now through Facebook Messenger or by calling/texting directly.</p>
+<!-- ── ADD-ONS ── -->
+<section class="addons" id="addons">
+  <div class="addons-inner">
+    <div class="addons-header">
+      <span class="section-tag">Customize Your Session</span>
+      <h2>Add-ons &amp; <em>concentrates</em></h2>
+      <div class="gold-rule gold-rule--center"></div>
+      <p>Fine-tune any tan with professional concentrates and finishing touches.</p>
     </div>
-    <div class="launch-price">
-      <div class="launch-price-num">$20</div>
-      <div class="launch-price-note">First 15 clients only</div>
-      <a href="#book" class="btn btn-gold" style="margin-top:1.2rem;font-size:0.58rem">Claim Your Spot</a>
+
+    <div class="addons-grid">
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">PREP pH Balancer</span>
+          <span class="addon-price">$5</span>
+        </div>
+        <p class="addon-desc">Hydrating prep spray that balances skin pH, reduces tan odor, and helps your color fade more evenly.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">Anti-Aging Concentrate</span>
+          <span class="addon-price">$8</span>
+        </div>
+        <p class="addon-desc">Hydrates and softens the look of fine lines — designed for mature skin.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">DHA Booster</span>
+          <span class="addon-price">$8</span>
+        </div>
+        <p class="addon-desc">Deepens your tan one shade darker without committing to a full level up.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">Skin Firming Concentrate</span>
+          <span class="addon-price">$8</span>
+        </div>
+        <p class="addon-desc">Caffeine and botanical extracts for a toned, firmer-looking finish.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">Restore CBD Concentrate</span>
+          <span class="addon-price">$10</span>
+        </div>
+        <p class="addon-desc">For sensitive or problematic skin — acne, rosacea, eczema, or psoriasis.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">Scent Add-On</span>
+          <span class="addon-price">$3</span>
+        </div>
+        <p class="addon-desc">Replace the typical DHA smell with Vanilla, Pineapple, or Coconut.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ── BRIDAL ── -->
+<section class="bridal" id="bridal">
+  <div class="bridal-inner">
+    <div class="bridal-text">
+      <span class="section-tag section-tag--light">Bridal &amp; Events</span>
+      <h2>For your<br><em>biggest moments.</em></h2>
+      <div class="gold-rule"></div>
+      <p>Custom airbrush tans for the bride, the bridal party, and every celebration around the wedding — engagement photos, bachelorette weekends, and special events of every kind.</p>
+      <ul class="bridal-list">
+        <li>Bridal tans &amp; trial sessions</li>
+        <li>Bridal parties &amp; group bookings</li>
+        <li>Engagement photo prep</li>
+        <li>Bachelorette weekends</li>
+        <li>Special events &amp; milestones</li>
+      </ul>
+      <a href="#book" class="btn btn-gold">Request a Custom Quote</a>
+    </div>
+    <div class="bridal-aside">
+      <div class="bridal-quote">
+        <div class="bridal-quote-mark">“</div>
+        <p>Bridal packages priced per party — message for a custom quote that fits your day.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── BOOKING ── -->
 <section class="booking" id="book">
@@ -1280,6 +1582,20 @@
     <div class="gold-rule gold-rule--center"></div>
     <p>Booking is quick and easy. Message on Facebook or call/text directly — I respond fast and same-day appointments are often available.</p>
     <div class="booking-cards">
+      <a href="https://calendly.com/" target="_blank" class="booking-card" data-calendly>
+        <span class="booking-card-icon">📅</span>
+        <div class="booking-card-text">
+          <strong>Calendly</strong>
+          <small>Book online — coming soon</small>
+        </div>
+      </a>
+      <a href="tel:+13097374526" class="booking-card">
+        <span class="booking-card-icon">📞</span>
+        <div class="booking-card-text">
+          <strong>Call or Text</strong>
+          <small>(309) 737-4526</small>
+        </div>
+      </a>
       <a href="https://www.facebook.com/Coastalspraytans1" target="_blank" class="booking-card">
         <span class="booking-card-icon">📲</span>
         <div class="booking-card-text">
@@ -1294,15 +1610,68 @@
           <small>@Coastalspraytans1</small>
         </div>
       </a>
-      <a href="tel:+13097374526" class="booking-card">
-        <span class="booking-card-icon">📞</span>
-        <div class="booking-card-text">
-          <strong>Call or Text</strong>
-          <small>(309) 737-4526</small>
-        </div>
-      </a>
     </div>
-    <p class="booking-note">Located inside a local hair salon in Galesburg, IL · Serving Knox County · Same-day availability often open</p>
+    <p class="booking-note">Inside Salon Blanco · Galesburg, IL · Knox County · Same-day availability often open</p>
+  </div>
+</section>
+
+<!-- ── HOURS &amp; PREP ── -->
+<section class="hours-prep">
+  <div class="hours-prep-inner">
+
+    <div class="hours-block">
+      <span class="section-tag">Visit</span>
+      <h2>Hours &amp; <em>location</em></h2>
+      <div class="gold-rule"></div>
+      <p class="hours-loc"><strong>Inside Salon Blanco</strong><br>Galesburg, IL · Knox County</p>
+      <ul class="hours-list">
+        <li><span>Monday</span><span class="hours-closed">Closed</span></li>
+        <li><span>Tuesday</span><span>5:00 – 8:00 PM</span></li>
+        <li><span>Wednesday</span><span>5:00 – 9:00 PM</span></li>
+        <li><span>Thursday</span><span>5:00 – 7:00 PM</span></li>
+        <li><span>Friday</span><span class="hours-closed">Closed</span></li>
+        <li><span>Saturday</span><span class="hours-closed">Closed</span></li>
+        <li><span>Sunday</span><span class="hours-closed">Closed</span></li>
+      </ul>
+      <p class="hours-note">Appointments outside these hours by request — just ask.</p>
+    </div>
+
+    <div class="prep-block">
+      <span class="section-tag">What to Expect</span>
+      <h2>Before &amp; <em>after your tan</em></h2>
+      <div class="gold-rule"></div>
+      <ol class="prep-list">
+        <li>
+          <span class="prep-num">01</span>
+          <div>
+            <strong>24 hours before</strong>
+            <p>Exfoliate and shave. Skip lotion, oil, deodorant, and perfume on tan day.</p>
+          </div>
+        </li>
+        <li>
+          <span class="prep-num">02</span>
+          <div>
+            <strong>The day of</strong>
+            <p>Wear loose, dark clothing. Bring flip-flops. Your session takes about 20 minutes.</p>
+          </div>
+        </li>
+        <li>
+          <span class="prep-num">03</span>
+          <div>
+            <strong>After your tan</strong>
+            <p>Wait 8 hours (or your Rapid Tan rinse time) before showering. Pat dry, moisturize daily, and avoid long soaks.</p>
+          </div>
+        </li>
+        <li>
+          <span class="prep-num">04</span>
+          <div>
+            <strong>Make it last</strong>
+            <p>Most clients get 7–10 days with proper care. Re-book when your color starts to fade.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
   </div>
 </section>
 
@@ -1311,10 +1680,11 @@
   <svg class="footer-mark" id="footer-sun" viewBox="0 0 200 200"></svg>
   <div class="footer-name">Coastal Spray Tans</div>
   <div class="footer-sub">Galesburg, Illinois</div>
-  <div class="footer-loc">Inside a local hair salon · Galesburg, IL 61401 · Knox County</div>
+  <div class="footer-loc">Inside Salon Blanco · Galesburg, IL 61401 · Knox County</div>
   <ul class="footer-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#bridal">Bridal</a></li>
     <li><a href="#book">Book Now</a></li>
     <li><a href="https://www.instagram.com/Coastalspraytans1" target="_blank">Instagram</a></li>
   </ul>
@@ -1387,8 +1757,8 @@
 
   // ── TICKER ──
   const tickerItems = [
-    'Custom Airbrush Spray Tans','No Streaks · No Orange','Galesburg Illinois',
-    'Bridal &amp; Event Packages','Prom Season is Here','Book via Facebook or Phone',
+    'Custom Airbrush Spray Tans','No Streaks · No Orange','Inside Salon Blanco · Galesburg',
+    'Bridal &amp; Event Packages','Engagement &amp; Bachelorette Glow','Book via Facebook or Phone',
     'Results Last 7–10 Days','Light · Medium · Dark Shades',
   ];
   const track = document.getElementById('ticker-track');
