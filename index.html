@@ -73,7 +73,7 @@
       width: auto;
       mix-blend-mode: multiply;
       display: block;
-
+      transform: rotate(15deg);
     }
 
     .nav-links {
@@ -1741,9 +1741,7 @@
     svgEl.appendChild(cres);
   }
 
-  buildSunMark(document.getElementById('hero-sun'),  { outerR:88, innerR:55, cresR1:48, cresOff:22, rays:20, rayW:3 });
-  buildSunMark(document.getElementById('nav-sun'),   { outerR:42, innerR:27, cresR1:23, cresOff:11, rays:16, rayW:2.2 });
-  buildSunMark(document.getElementById('about-sun'), { outerR:88, innerR:56, cresR1:48, cresOff:22, rays:20, rayW:3 });
+  /* hero-sun, nav-sun, about-sun replaced with img tags */
   buildSunMark(document.getElementById('bg-sun-1'),  { outerR:88, innerR:56, cresR1:48, cresOff:22, rays:20, rayW:3 });
   buildSunMark(document.getElementById('bg-sun-2'),  { outerR:88, innerR:56, cresR1:48, cresOff:22, rays:20, rayW:3 });
   buildSunMark(document.getElementById('footer-sun'),{ outerR:86, innerR:54, cresR1:46, cresOff:20, rays:18, rayW:2.8 });
