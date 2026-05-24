@@ -50,7 +50,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 3.5rem;
+      padding: 0.25rem 3.5rem;
       background: rgba(248, 243, 234, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -66,7 +66,7 @@
     }
 
     .nav-logo {
-      height: 72px;
+      height: 144px;
       width: auto;
       mix-blend-mode: multiply;
       display: block;
@@ -177,15 +177,11 @@
     }
 
     .hero-mark {
-      width: 130px; height: 130px;
+      width: 220px; height: 220px;
       margin: 0 auto 2.8rem;
-      border-radius: 50%;
-      background: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 0 45px rgba(201,168,67,0.4);
       opacity: 0;
       animation: markReveal 1s ease 0.2s forwards, markGlow 6s ease-in-out 1.2s infinite;
     }
@@ -193,7 +189,10 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 12px;
+      mix-blend-mode: screen;
+      mask-image: radial-gradient(ellipse 60% 65% at 38% 50%, black 25%, transparent 72%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 65% at 38% 50%, black 25%, transparent 72%);
+      filter: drop-shadow(0 0 30px rgba(201,168,67,0.45));
     }
     @keyframes markReveal {
       from { opacity:0; transform:scale(0.85); }
@@ -1371,7 +1370,7 @@
 
   <div class="hero-content">
     <div class="hero-mark">
-      <img src="logo-outline.png" alt="Coastal Spray Tans">
+      <img src="logo-2.png" alt="Coastal Spray Tans">
     </div>
     <span class="hero-eyebrow">Airbrush Spray Tanning · Galesburg, Illinois</span>
     <h1 class="hero-title">
