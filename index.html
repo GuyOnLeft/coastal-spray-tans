@@ -47,6 +47,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 495;
+      height: 90px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,18 +56,19 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(201, 168, 67, 0.18);
-      transition: padding 0.3s;
+      overflow: hidden;
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
+      height: 100%;
       gap: 0.9rem;
       text-decoration: none;
     }
 
     .nav-logo {
-      height: 144px;
+      height: 130%;
       width: auto;
       mix-blend-mode: multiply;
       display: block;
