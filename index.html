@@ -66,7 +66,7 @@
     }
 
     .nav-logo {
-      height: 46px;
+      height: 72px;
       width: auto;
       mix-blend-mode: multiply;
       display: block;
@@ -179,9 +179,21 @@
     .hero-mark {
       width: 130px; height: 130px;
       margin: 0 auto 2.8rem;
-      filter: drop-shadow(0 0 35px rgba(201,168,67,0.35));
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 45px rgba(201,168,67,0.4);
       opacity: 0;
       animation: markReveal 1s ease 0.2s forwards, markGlow 6s ease-in-out 1.2s infinite;
+    }
+    .hero-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
     }
     @keyframes markReveal {
       from { opacity:0; transform:scale(0.85); }
@@ -1358,7 +1370,9 @@
   </div>
 
   <div class="hero-content">
-    <svg class="hero-mark" id="hero-sun" viewBox="0 0 200 200"></svg>
+    <div class="hero-mark">
+      <img src="logo-outline.png" alt="Coastal Spray Tans">
+    </div>
     <span class="hero-eyebrow">Airbrush Spray Tanning · Galesburg, Illinois</span>
     <h1 class="hero-title">
       Your Best<br><em>Glow Yet.</em>
