@@ -636,7 +636,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 4rem;
       font-weight: 300;
-      color: rgba(201,168,67,0.1);
+      color: rgba(201,168,67,0.32);
       line-height: 1;
       position: absolute;
       top: 2rem; right: 2.5rem;
@@ -725,6 +725,41 @@
     }
     .service-card--featured .service-cta:hover {
       background: var(--gold-lt);
+    }
+
+    /* ─── À LA CARTE ─── */
+    .alacarte {
+      max-width: 820px;
+      margin: 2.5rem auto 0;
+      border: 1px solid rgba(201,168,67,0.15);
+      padding: 2.4rem 2.8rem 2.6rem;
+      position: relative;
+      z-index: 1;
+    }
+    .alacarte-head {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+    .alacarte-title {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .alacarte-sub {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .alacarte-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3.5rem;
+      row-gap: 0.55rem;
     }
 
     /* ─── LAUNCH OFFER ─── */
@@ -1295,6 +1330,8 @@
       .services-grid--two { grid-template-columns: 1fr; }
       .service-card { border-right: none; border-bottom: 1px solid rgba(201,168,67,0.1); }
       .service-card:last-child { border-bottom: none; }
+      .alacarte { padding: 1.8rem 1.4rem 2rem; }
+      .alacarte-grid { grid-template-columns: 1fr; }
 
       .addons { padding: 5rem 1.5rem; }
       .addons-grid { grid-template-columns: 1fr; }
@@ -1482,6 +1519,31 @@
     </div>
 
   </div>
+
+  <div class="alacarte">
+    <div class="alacarte-head">
+      <span class="alacarte-title">À La Carte</span>
+      <span class="alacarte-sub">Targeted sessions · just the areas you need</span>
+    </div>
+    <div class="alacarte-grid">
+      <div class="price-row">
+        <span class="price-label">Face</span>
+        <span class="price-val">$10</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Face &amp; Neck</span>
+        <span class="price-val">$15</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Upper Body</span>
+        <span class="price-val">$20</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Lower Body</span>
+        <span class="price-val">$20</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ── ADD-ONS ── -->
@@ -1537,6 +1599,13 @@
         </div>
         <p class="addon-desc">Replace the typical DHA smell with Vanilla, Pineapple, or Coconut.</p>
       </div>
+      <div class="addon">
+        <div class="addon-head">
+          <span class="addon-name">Finishing Powder</span>
+          <span class="addon-price">$5</span>
+        </div>
+        <p class="addon-desc">Silky setting powder applied after your session — locks in your color and eliminates any sticky feel.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1573,7 +1642,7 @@
     <span class="section-tag">Ready to Glow?</span>
     <h2>Book your <em>appointment</em></h2>
     <div class="gold-rule gold-rule--center"></div>
-    <p>Booking is quick and easy. Call, text, or book online — I respond fast and same-day appointments are often available.</p>
+    <p>Booking is quick and easy. Call, text, or book online. Same-day appointments are often available.</p>
     <div class="booking-cards">
       <a href="https://calendly.com/bry-coastalspraytan/new-meeting" target="_blank" class="booking-card" data-calendly>
         <span class="booking-card-icon">📅</span>
@@ -1598,7 +1667,7 @@
         </div>
       </a>
     </div>
-    <p class="booking-note">Inside Salon Blanco · Galesburg, IL · Knox County · Same-day availability often open</p>
+    <p class="booking-note">Inside Salon Blanco · 975 N Henderson St #3, Galesburg, IL 61401 · Same-day availability often open</p>
   </div>
 </section>
 
@@ -1610,7 +1679,7 @@
       <span class="section-tag">Visit</span>
       <h2>Hours &amp; <em>location</em></h2>
       <div class="gold-rule"></div>
-      <p class="hours-loc"><strong>Inside Salon Blanco</strong><br>Galesburg, IL · Knox County</p>
+      <p class="hours-loc"><strong>Inside Salon Blanco</strong><br>975 N Henderson St #3<br>Galesburg, IL 61401 · Knox County</p>
       <ul class="hours-list">
         <li><span>Monday</span><span class="hours-closed">Closed</span></li>
         <li><span>Tuesday</span><span>5:00 – 8:00 PM</span></li>
@@ -1667,7 +1736,7 @@
   <svg class="footer-mark" id="footer-sun" viewBox="0 0 200 200"></svg>
   <div class="footer-name">Coastal Spray Tans</div>
   <div class="footer-sub">Galesburg, Illinois</div>
-  <div class="footer-loc">Inside Salon Blanco · Galesburg, IL 61401 · Knox County</div>
+  <div class="footer-loc">Inside Salon Blanco · 975 N Henderson St #3 · Galesburg, IL 61401 · Knox County</div>
   <ul class="footer-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -1743,8 +1812,9 @@
 
   // ── TICKER ──
   const tickerItems = [
-    'Custom Airbrush Spray Tans','No Streaks · No Orange','Inside Salon Blanco · Galesburg',
-    'Bridal &amp; Event Packages','Engagement &amp; Bachelorette Glow','Book via Facebook or Phone',
+    'Custom Airbrush Spray Tans','No Streaks · No Orange','PETA-Approved','Vegan-Certified',
+    'Gluten-Free','No Parabens','No Erythrulose','No Mineral Oil',
+    'Inside Salon Blanco · Galesburg','Bridal &amp; Event Packages','Engagement &amp; Bachelorette Glow',
     'Results Last 7–10 Days','Light · Medium · Dark Shades',
   ];
   const track = document.getElementById('ticker-track');
