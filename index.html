@@ -4,8 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coastal Spray Tans — Galesburg, Illinois</title>
-  <link rel="icon" type="image/png" href="logo-outline.png">
-  <link rel="apple-touch-icon" href="logo-outline.png">
+  <!-- Explicit, sized icons. /favicon.ico previously 404'd, so browsers fell
+       back to a stale cached icon from the old Replit host. Small sizes use a
+       simplified crescent (the full sunburst's rays mush below ~48px). -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0D2040">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -600,6 +608,10 @@
       position: relative;
       transition: background 0.4s;
       overflow: hidden;
+      /* flex column so price row + CTA pin to the bottom and align across
+         cards regardless of how many lines the description wraps to */
+      display: flex;
+      flex-direction: column;
     }
     .service-card:last-child { border-right: none; }
 
@@ -631,6 +643,11 @@
     }
     .service-card:hover::after { opacity: 1; }
     .service-card:hover { background: rgba(201,168,67,0.06); }
+    /* The featured card already rests at 0.045, so the shared 0.06 hover was a
+       0.015 delta — invisible, making it look permanently hovered. Give it its
+       own hover so both cards gain a comparable ~0.065 of gold. Must stay after
+       .service-card:hover — equal specificity, so source order decides. */
+    .service-card--featured:hover { background: rgba(201,168,67,0.11); }
 
     .service-num {
       font-family: 'Cormorant Garamond', serif;
@@ -646,6 +663,11 @@
       font-size: 1.6rem;
       margin-bottom: 1.8rem;
       display: block;
+      /* .services flips the background to navy but never the inherited
+         color (--text #2A2015), so a text glyph rendered near-invisible.
+         Both icons are now text glyphs in brand gold, not emoji. */
+      color: var(--gold);
+      line-height: 1;
     }
 
     .service-name {
@@ -675,6 +697,7 @@
       line-height: 1.85;
       color: rgba(248,243,234,0.48);
       margin-bottom: 2.2rem;
+      flex: 1;            /* absorbs the slack so everything below it bottom-aligns */
     }
 
     .service-pricing { display: flex; flex-direction: column; gap: 0.55rem; }
@@ -1504,7 +1527,7 @@
 
     <div class="service-card service-card--featured">
       <span class="service-num">02</span>
-      <span class="service-icon">⚡</span>
+      <span class="service-icon">»</span>
       <div class="service-name">Rapid Tan</div>
       <div class="service-tagline">Quicker Rinse Time</div>
       <div class="service-rule"></div>
