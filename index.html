@@ -1228,6 +1228,101 @@
       color: var(--cream);
     }
 
+    /* ─── REVIEWS ─── */
+    /* Sits between bridal (navy) and booking (cream); uses --sand so the page
+       doesn't run two cream bands together. */
+    .reviews {
+      background: var(--sand);
+      padding: 8rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .reviews-inner { max-width: 1140px; margin: 0 auto; }
+    .reviews-header { text-align: center; margin-bottom: 3.5rem; }
+    .reviews-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .reviews-header h2 em { font-style: italic; color: var(--gold-dk); }
+
+    .reviews-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid rgba(158,126,40,0.3);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .reviews-score:hover {
+      border-color: var(--gold-dk);
+      background: rgba(255,255,255,0.75);
+    }
+    .reviews-score-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--gold-dk);
+      line-height: 1;
+    }
+    .reviews-score-stars { color: var(--gold); letter-spacing: 0.12em; font-size: 0.9rem; }
+    .reviews-score-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(158,126,40,0.18);
+      padding: 2.1rem 1.9rem;
+      /* flex column so the attribution pins to the bottom and lines up across
+         cards whatever the quote length — same fix as the service cards */
+      display: flex;
+      flex-direction: column;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    .review-card:hover {
+      background: rgba(255,255,255,0.8);
+      border-color: rgba(158,126,40,0.4);
+    }
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 1.1rem;
+    }
+    .review-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.06rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+      flex: 1;
+    }
+    .review-name {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     /* ─── HOURS &amp; PREP ─── */
     .hours-prep {
       background: var(--cream);
@@ -1364,6 +1459,11 @@
       .bridal-aside { justify-content: stretch; }
       .bridal-quote { max-width: 100%; }
 
+      .reviews { padding: 5rem 1.5rem; }
+      .reviews-header { margin-bottom: 2.5rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .review-card { padding: 1.8rem 1.5rem; }
+
       .hours-prep { padding: 5rem 1.5rem; }
       .hours-prep-inner { grid-template-columns: 1fr; gap: 4rem; }
 
@@ -1386,6 +1486,10 @@
       .about-orb { width: 220px; height: 220px; }
       .about-pill { right: -4px; }
       .services-header h2 { font-size: 2.2rem; }
+      .reviews-header h2 { font-size: 2.2rem; }
+      /* the score pill is one long inline row — let it wrap instead of
+         pushing past the viewport on narrow phones */
+      .reviews-score { flex-wrap: wrap; justify-content: center; padding: 0.7rem 1.1rem; }
     }
   </style>
 </head>
@@ -1655,6 +1759,70 @@
         <div class="bridal-quote-mark">“</div>
         <p>Bridal packages priced per party — message for a custom quote that fits your day.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<!-- Quotes are verbatim excerpts from Google reviews. Each ends at a complete
+     sentence — nothing is paraphrased or extended. Rating verified live on
+     Google Maps 2026-08-12. No review count is stated here on purpose: the
+     link keeps it current.
+     Two Google IDs exist for this business, don't mix them up:
+       14668169975477097273 — Business Profile admin (business.google.com/n/<id>)
+       14307059488861838657 — the public map CID / "fid" used in the link below -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+
+    <div class="reviews-header">
+      <span class="section-tag">What Clients Say</span>
+      <h2>Reviewed by<br><em>your neighbors.</em></h2>
+      <a class="reviews-score" href="https://maps.google.com/?cid=14307059488861838657"
+         target="_blank" rel="noopener">
+        <span class="reviews-score-num">5.0</span>
+        <span class="reviews-score-stars">★★★★★</span>
+        <span class="reviews-score-label">on Google — read all</span>
+      </a>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-quote">Would recommend 100%. The owner, Bry, is all about customer service and very accommodating.</p>
+        <div class="review-name">Pamela D.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-quote">You have to go to Bry for a spray tan. She is so nice and makes you feel so comfortable.</p>
+        <div class="review-name">Dawn J.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-quote">Excellent experience! My first spray tan ever, and Brynda was great.</p>
+        <div class="review-name">Mandy B.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-quote">Got my first spray tan ever, I am thrilled with the job Bry did.</p>
+        <div class="review-name">Bryan B.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-quote">Bry did a wonderful job during my spray tan. She talked me through each step.</p>
+        <div class="review-name">Darla J.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-quote">Bry did an all over spray for me and it looks amazing!!</p>
+        <div class="review-name">Brenda B.</div>
+      </div>
+
     </div>
   </div>
 </section>
