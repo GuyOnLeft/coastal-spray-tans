@@ -187,12 +187,8 @@
 
     .hero-mark {
       width: auto;
-      max-width: 360px;
+      max-width: 520px;
       margin: 0 auto 2.8rem;
-      background: var(--cream);
-      border-radius: 14px;
-      padding: 14px 28px;
-      box-shadow: 0 0 50px rgba(201,168,67,0.35), 0 10px 40px rgba(0,0,0,0.25);
       opacity: 0;
       animation: markReveal 1s ease 0.2s forwards;
     }
@@ -200,6 +196,8 @@
       width: 100%;
       height: auto;
       display: block;
+      /* glow follows the logo's shape now that the card is gone */
+      filter: drop-shadow(0 0 35px rgba(201,168,67,0.35));
     }
     @keyframes markReveal {
       from { opacity:0; transform:scale(0.85); }
@@ -439,6 +437,10 @@
       width: 68%;
       height: auto;
       opacity: 0.9;
+      /* Optical centering: the PNG's ink bbox is centered on its canvas, but the
+         heavy crescent sits right (mass centroid ~5% right of center) while the
+         left side is only thin ray tips. Nudge left so it *looks* centered. */
+      transform: translateX(-5%);
     }
 
     .about-pill {
@@ -1595,7 +1597,7 @@
 
   <div class="hero-content">
     <div class="hero-mark">
-      <img src="logo-full.png" alt="Coastal Spray Tans">
+      <img src="logo-full-light.png" alt="Coastal Spray Tans">
     </div>
     <span class="hero-eyebrow">Airbrush Spray Tanning · Galesburg, Illinois</span>
     <h1 class="hero-title">
