@@ -604,6 +604,11 @@
 
     .service-card {
       padding: 3.5rem 2.8rem;
+      /* Both cards share this faint gold wash. It used to sit only on
+         --featured, which left Signature Tan on raw navy and read as a
+         mismatched pair. The MOST POPULAR badge is what marks the featured
+         card now, not a different background. */
+      background: rgba(201,168,67,0.045);
       border-right: 1px solid rgba(201,168,67,0.12);
       position: relative;
       transition: background 0.4s;
@@ -615,9 +620,6 @@
     }
     .service-card:last-child { border-right: none; }
 
-    .service-card--featured {
-      background: rgba(201,168,67,0.045);
-    }
     .service-card--featured::before {
       content: 'MOST POPULAR';
       position: absolute;
@@ -642,12 +644,9 @@
       transition: opacity 0.4s;
     }
     .service-card:hover::after { opacity: 1; }
-    .service-card:hover { background: rgba(201,168,67,0.06); }
-    /* The featured card already rests at 0.045, so the shared 0.06 hover was a
-       0.015 delta — invisible, making it look permanently hovered. Give it its
-       own hover so both cards gain a comparable ~0.065 of gold. Must stay after
-       .service-card:hover — equal specificity, so source order decides. */
-    .service-card--featured:hover { background: rgba(201,168,67,0.11); }
+    /* Both cards rest at 0.045, so one shared hover keeps them identical.
+       0.06 would only be a 0.015 lift and read as no hover at all. */
+    .service-card:hover { background: rgba(201,168,67,0.11); }
 
     .service-num {
       font-family: 'Cormorant Garamond', serif;
